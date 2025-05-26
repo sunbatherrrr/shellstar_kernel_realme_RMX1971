@@ -1257,7 +1257,7 @@ static long set_jcop_download_state(unsigned long arg)
             if(pn544_dev->nfc_service_pid)
             {
                 pr_info("nfc service pid %s   ---- %ld", __func__, pn544_dev->nfc_service_pid);
-                signal_handler(JCP_DWNLD_INIT, pn544_dev->nfc_service_pid);
+                signal_handler((enum p61_access_state)JCP_DWNLD_INIT, pn544_dev->nfc_service_pid);
             }
             else
             {
@@ -1286,7 +1286,7 @@ static long set_jcop_download_state(unsigned long arg)
         {
             if(pn544_dev->nfc_service_pid)
             {
-                signal_handler(JCP_DWP_DWNLD_COMPLETE, pn544_dev->nfc_service_pid);
+                signal_handler((enum p61_access_state)JCP_DWP_DWNLD_COMPLETE, pn544_dev->nfc_service_pid);
             }
             p61_update_access_state(pn544_dev, P61_STATE_JCP_DWNLD, false);
         }

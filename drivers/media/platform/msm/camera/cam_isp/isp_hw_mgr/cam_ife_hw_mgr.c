@@ -2229,7 +2229,7 @@ static int cam_ife_mgr_start_hw(void *hw_mgr_priv, void *start_hw_args)
 	CAM_DBG(CAM_ISP, "Exit...(success)");
 	return 0;
 err:
-	stop_hw_method.hw_stop_cmd = CAM_CSID_HALT_IMMEDIATELY;
+	stop_hw_method.hw_stop_cmd = (enum cam_isp_hw_stop_cmd)CAM_CSID_HALT_IMMEDIATELY;
 	stop_args.ctxt_to_hw_map = start_args->ctxt_to_hw_map;
 	stop_args.args = (void *)(&stop_hw_method);
 	cam_ife_mgr_stop_hw(hw_mgr_priv, &stop_args);
